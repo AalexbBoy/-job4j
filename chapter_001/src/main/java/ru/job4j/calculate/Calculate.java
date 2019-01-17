@@ -1,10 +1,10 @@
-package ru.job4j.calculate;
+﻿package ru.job4j.calculate;
 /**
 *Calculate
 *@author Alexey Bogutsky
 */
 public class Calculate {
-/** Method main.
+/** Method main
 * @param args - содержит параметры командной строки.
 * @return - ничего не возвращает
 */
