@@ -7,9 +7,8 @@ public class Calculate {
 /** Method main
 * @param args - содержит параметры командной строки.
 */
-   public static void main (String[] args){
+   public static void main(String[] args) {
         System.out.println("Hello World");
-
     }
 	 /**
      * Method echo.
