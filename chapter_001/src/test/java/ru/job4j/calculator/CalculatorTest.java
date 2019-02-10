@@ -17,25 +17,25 @@ public class CalculatorTest  {
     @Test
     public void whenSubstractOneMinusOneThenZero()  {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.substract(1D, 1D);
         double result = calc.getResult();
-        double expected = 2D;
+        double expected = 0D;
         assertThat(result, is(expected));
     }
     @Test
     public void whenMultiplyOneMultipleOneThenOne()  {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.multiply(1D, 1D);
         double result = calc.getResult();
-        double expected = 2D;
+        double expected = 1D;
         assertThat(result, is(expected));
 
     }	  @Test
     public void whenDivideOneDivideOneThenOne()  {
         Calculator calc = new Calculator();
-        calc.add(1D, 1D);
+        calc.divide(1D, 1D);
         double result = calc.getResult();
-        double expected = 2D;
+        double expected = 1D;
         assertThat(result, is(expected));
     }
 }

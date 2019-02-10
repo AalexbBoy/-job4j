@@ -10,15 +10,15 @@ public class Calculator {
         this.result = first + second;
     }
 
-    public void subtract(double first, double second) {
+    public void substract(double first, double second) {
         this.result = first - second;
     }
 
-    public void multiple(double first, double second) {
+    public void multiply(double first, double second) {
         this.result = first * second;
     }
 
-    public void div(double first, double second) {
+    public void divide(double first, double second) {
         this.result = first / second;
     }
 }
