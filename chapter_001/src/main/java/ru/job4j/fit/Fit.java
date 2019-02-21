@@ -1,27 +1,31 @@
-package ru.job4j.calculator;
+
+
+
+
+package ru.job4j.fit;
 
 /**
- * ѕрограмма расчета идеального веса.
+ * ПаЃ£а†ђђ† а†бз•в† ®§•†Ђм≠Ѓ£Ѓ Ґ•б†.
  */
 public class Fit {
 
     /**
-     * »деальный вес дл€ мужщины.
-     * @param height –ост.
-     * @return идеальный вес.
+     * И§•†Ђм≠л© Ґ•б §Ђп ђг¶й®≠л.
+     * @param height РЃбв.
+     * @return ®§•†Ђм≠л© Ґ•б.
      */
     public double manWeight(double height) {
-		//»деальный вес дл€ мужчин = (рост в сантиметрах Ц 100) Ј 1,15.
-        return -1D;
+        return (height - 100) * 1.15;
+
     }
 
     /**
-     * »деальный вес дл€ женщины.
-     * @param height –ост.
-     * @return идеальный вес.
+     * И§•†Ђм≠л© Ґ•б §Ђп ¶•≠й®≠л.
+     * @param height РЃбв.
+     * @return ®§•†Ђм≠л© Ґ•б.
      */
-	 public double womanWeight(double height) {
-		 //»деальный вес дл€ женщин = (рост в сантиметрах Ц 110) Ј 1,15.
-        return -1D;
+    public double womanWeight(double height) {
+        return (height - 110) * 1.15;
+
     }
 }
