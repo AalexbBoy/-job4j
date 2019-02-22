@@ -1,31 +1,25 @@
-
-
-
-
 package ru.job4j.fit;
 
 /**
- * è‡Æ£‡†¨¨† ‡†·Á•‚† ®§•†´Ï≠Æ£Æ ¢•·†.
+ * –ü—Ä–æ–≥—Ä–∞–º–º–∞ —Ä–∞—Å—á–µ—Ç–∞ –∏–¥–µ–∞–ª—å–Ω–æ–≥–æ –≤–µ—Å–∞.
  */
 public class Fit {
 
     /**
-     * à§•†´Ï≠Î© ¢•· §´Ô ¨„¶È®≠Î.
-     * @param height êÆ·‚.
-     * @return ®§•†´Ï≠Î© ¢•·.
+     * –ò–¥–µ–∞–ª—å–Ω—ã–π –≤–µ—Å –¥–ª—è –º—É–∂—â–∏–Ω—ã.
+     * @param height –†–æ—Å—Ç.
+     * @return –∏–¥–µ–∞–ª—å–Ω—ã–π –≤–µ—Å.
      */
     public double manWeight(double height) {
         return (height - 100) * 1.15;
-
     }
 
     /**
-     * à§•†´Ï≠Î© ¢•· §´Ô ¶•≠È®≠Î.
-     * @param height êÆ·‚.
-     * @return ®§•†´Ï≠Î© ¢•·.
+     * –ò–¥–µ–∞–ª—å–Ω—ã–π –≤–µ—Å –¥–ª—è –∂–µ–Ω—â–∏–Ω—ã.
+     * @param height –†–æ—Å—Ç.
+     * @return –∏–¥–µ–∞–ª—å–Ω—ã–π –≤–µ—Å.
      */
     public double womanWeight(double height) {
         return (height - 110) * 1.15;
-
     }
 }
