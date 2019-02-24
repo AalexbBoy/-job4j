@@ -14,9 +14,6 @@ public class Factorial {
         for (int i = 1; i <= n; i++) {
             multiplay = multiplay * i;
         }
-        if (n == 0) {
-            return 1;
-        }
         return  multiplay;
     }
 }
