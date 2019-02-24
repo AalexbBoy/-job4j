@@ -51,12 +51,10 @@ public class Triangle {
      * @param ab Длина от точки a до точки b.
      * @param ac Длина от точки a до точки c.
      * @param bc Длина от точки b до точки c.
-     * @return
+     * @return площадь треугольника
      */
     private boolean exist(double ab, double ac, double bc) {
-        if ((ab == ac + bc) | (ac == ab + bc) | (bc == ab + ac)) {
-            return false;
-        }
-        return  true;
+
+        return (ab < ac + bc) && (ac < ab + bc) && (bc < ab + ac);
     }
 }
