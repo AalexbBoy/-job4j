@@ -3,7 +3,7 @@ package ru.job4j.array;
 /**
  * Массив задом наперед
  *
- * @author Alex.Boy
+ * @author alex.Boy
  */
 public class Turn {
     /**
