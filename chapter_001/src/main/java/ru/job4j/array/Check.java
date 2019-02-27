@@ -12,21 +12,14 @@ public class Check {
      */
 
     public boolean mono(boolean[] data) {
-        boolean result = false;
-        int countTrue = 0;
-        int countFalse = 0;
+        boolean result = true;
+
 
         for (int i = 0; i < data.length; i++) {
-            if (data[i]) {
-                countTrue += 1;
-            } else {
-                countFalse += 1;
+            if (data[0] != data[i]) {
+                result = false;
+                break;
             }
-        }
-        if (countTrue == data.length) {
-            result = true;
-        } else if (countFalse == data.length) {
-            result = true;
         }
         return result;
     }
