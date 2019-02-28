@@ -3,7 +3,7 @@ package ru.job4j.array;
 /**
  * Calculate
  *
- * @author Alexey Bogutsky
+ * @author Alex.boy
  */
 public class FindLoop {
     /**
