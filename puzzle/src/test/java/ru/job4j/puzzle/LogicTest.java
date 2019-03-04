@@ -56,4 +56,20 @@ public class LogicTest {
         };
         assertThat(logic.isWin(), is(false));
     }
+    @Test
+    public void whenNotWin1() {
+        Logic logic = new Logic(5) {
+            @Override
+            public int[][] convert() {
+                return new int[][]{
+                        {1, 0, 0, 0, 0},
+                        {0, 1, 0, 0, 0},
+                        {0, 0, 1, 0, 0},
+                        {0, 0, 0, 1, 0},
+                        {0, 0, 0, 0, 1},
+                };
+            }
+        };
+        assertThat(logic.isWin(), is(false));
+    }
 }

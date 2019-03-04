@@ -85,6 +85,7 @@ public class Logic {
                 result = true;
                 return result;
             }
+            raw = cell = 0;
         }
         return result;
     }
