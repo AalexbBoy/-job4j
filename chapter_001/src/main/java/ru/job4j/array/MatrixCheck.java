@@ -1,5 +1,4 @@
 package ru.job4j.array;
-
 /**
  * Талица умножения
  *
@@ -22,6 +21,5 @@ public class MatrixCheck {
             }
         }
         return result;
-
     }
 }

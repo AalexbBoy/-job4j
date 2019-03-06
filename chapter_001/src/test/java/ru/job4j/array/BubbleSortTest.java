@@ -13,7 +13,6 @@ public class BubbleSortTest {
         int[] result = bubbleTest.sort(test);
         int[] expect = new int[]{0, 1, 1, 2, 3, 4, 5, 5, 7, 8};
         assertThat(result, is(expect));
-
     }
 }
 

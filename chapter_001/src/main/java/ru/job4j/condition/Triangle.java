@@ -54,7 +54,6 @@ public class Triangle {
      * @return площадь треугольника
      */
     private boolean exist(double ab, double ac, double bc) {
-
         return (ab < ac + bc) && (ac < ab + bc) && (bc < ab + ac);
     }
 }
