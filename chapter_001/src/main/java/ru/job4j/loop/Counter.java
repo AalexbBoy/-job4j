@@ -1,11 +1,13 @@
 package ru.job4j.loop;
+
 /**
  * Программа расчета сумму четныx чисел.
  */
 public class Counter {
-    /**Метод должен вычислять сумму четныx чисел в диапазоне от start до finish;
+    /**
+     * Метод должен вычислять сумму четныx чисел в диапазоне от start до finish;
      *
-     * @param start с какого числа
+     * @param start  с какого числа
      * @param finish по какое число
      * @return сумма
      */
