@@ -1,6 +1,6 @@
 public class Profession {
-    public String name;
-    public String profession;
+    private String name;
+    private String profession;
 
     public Profession(String name, String profession) {
         this.name = name;
@@ -17,7 +17,7 @@ public class Profession {
 }
 
 class Pacient extends Profession {
-    public Diagnose diagnose = null;
+    private Diagnose diagnose = null;
 
     public Pacient(String name, String profession) {
         super(name, profession);
@@ -62,7 +62,7 @@ class Skill {
 }
 
 class Student extends Profession {
-    public Skill skill = null;
+    private Skill skill = null;
 
     public Student(String name, String profession) {
         super(name, profession);
