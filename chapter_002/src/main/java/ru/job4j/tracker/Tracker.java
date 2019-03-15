@@ -62,8 +62,8 @@ public class Tracker {
         boolean result = false;
         for (int i = 0; i < position; i++) {
             if (this.items[i].getId().equals(id)) {
-                System.arraycopy(this.items, ++i, this.items, i, position);
-                this.items[position - 1] = null;
+                System.arraycopy(this.items, i + 1, this.items, i, position);
+                this.items[--position] = null;
                 result = true;
                 break;
             }
@@ -96,7 +96,8 @@ public class Tracker {
                 j++;
             }
         }
-        return Arrays.copyOf(result, j);
+        if (j > 0) return Arrays.copyOf(result, j);
+        else return null;
     }
 
     public Item findById(String id) {

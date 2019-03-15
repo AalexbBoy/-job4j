@@ -1,0 +1,176 @@
+package ru.job4j.tracker;
+
+import java.io.IOException;
+import java.util.Scanner;
+
+/**
+ * @version $Id$
+ * @since 0.1
+ */
+
+class Input {
+    public String ask(String question) {
+        System.out.println(question);
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        return str;
+    }
+}
+
+
+public class StartUI {
+    /**
+     * Константа меню для добавления новой заявки.
+     */
+    private static final String ADD = "0";
+
+    private static final String SHOW = "1";
+    private static final String EDIT = "2";
+    private static final String DEL = "3";
+    private static final String FIND_ID = "4";
+    private static final String FIND_NAME = "5";
+
+
+    /**
+     * Константа для выхода из цикла.
+     */
+    private static final String EXIT = "6";
+    /**
+     * Получение данных от пользователя.
+     */
+
+    private final Input input;
+    /**
+     * Хранилище заявок.
+     */
+    private final Tracker tracker;
+
+    /**
+     * Конструтор инициализирующий поля.
+     *
+     * @param input   ввод данных.
+     * @param tracker хранилище заявок.
+     */
+    public StartUI(Input input, Tracker tracker) {
+        this.input = input;
+        this.tracker = tracker;
+    }
+
+    /**
+     * Основой цикл программы.
+     */
+    public void init() {
+        boolean exit = false;
+        while (!exit) {
+            this.showMenu();
+            String answer = this.input.ask("Введите пункт меню : ");
+            if (ADD.equals(answer)) {
+                this.createItem();
+            } else if (SHOW.equals(answer)) {
+                this.showItems();
+            } else if (EDIT.equals(answer)) {
+                this.editItem();
+            } else if (DEL.equals(answer)) {
+                this.deleteItem();
+            } else if (FIND_ID.equals(answer)) {
+                this.findById();
+            } else if (FIND_NAME.equals(answer)) {
+                this.findByName();
+            } else if (EXIT.equals(answer)) {
+                exit = true;
+            }
+        }
+    }
+
+    /**
+     * Метод реализует добавленяи новый заявки в хранилище.
+     */
+    private void createItem() {
+        System.out.println("------------ Добавление новой заявки --------------");
+        String name = this.input.ask("Введите имя заявки :");
+        String desc = this.input.ask("Введите описание заявки :");
+        Item item = new Item(name, desc, System.currentTimeMillis());
+        this.tracker.add(item);
+        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+    }
+
+    private void editItem() {
+        System.out.println("------------ Редактирование заявки --------------");
+        String name = this.input.ask("Введите имя заявки :");
+        Item[] items = this.tracker.findByName(name);
+        if (items != null) {
+            System.out.println("------------ Найдена заявка с именем : " + items[0].getName() + "-----------");
+            System.out.println("------------ описание заявки :" + items[0].getDecs() + "-----------");
+            System.out.println("------------ ID заявки :" + items[0].getId() + "-----------");
+            items[0].setDecs(this.input.ask("Введите новое описание заявки :"));
+            if (tracker.replace(name, items[0])) System.out.println("Замен0а прошла успешно");
+            else System.out.println("Замена не удалась");
+        } else System.out.println("Нет такой заявки");
+    }
+
+    private void showItems() {
+        System.out.println("------------ Поиск всех заявок --------------");
+        Item[] items = this.tracker.findAll();
+        if (items != null) {
+            for (Item it : items) {
+                System.out.println("------------ Найдена заявка с именем : " + it.getName() + "-----------");
+                System.out.println("------------ описание заявки :" + it.getDecs() + "-----------");
+            }
+        }
+    }
+
+    private void deleteItem() {
+        System.out.println("------------ Удаление заявки --------------");
+        String name = this.input.ask("Введите имя заявки :");
+        Item[] items = this.tracker.findByName(name);
+        if (items != null) {
+            System.out.println("------------ Найдена заявка с именем : " + items[0].getName() + "-----------");
+            System.out.println("------------ описание заявки :" + items[0].getDecs() + "-----------");
+            if (tracker.delete(items[0].getId())) System.out.println("Удаление прошло успешно");
+            else System.out.println("Удаление не удалась");
+        } else System.out.println("Нет такой заявки");
+    }
+
+    private void findById() {
+        System.out.println("------------ Поиск по ID заявки --------------");
+        String id = this.input.ask("Введите ID заявки :");
+        Item item = this.tracker.findById(id);
+        if (item != null) {
+            System.out.println("------------ Найдена заявка с именем : " + item.getName() + "-----------");
+            System.out.println("------------ описание заявки :" + item.getDecs() + "-----------");
+        }
+    }
+
+    private void findByName() {
+        System.out.println("------------ Поиск по имени заявки --------------");
+        String name = this.input.ask("Введите имя заявки :");
+        Item[] items = this.tracker.findByName(name);
+        if (items != null) {
+            for (Item it : items) {
+                System.out.println("------------ Найдена заявка с именем : " + it.getName() + "-----------");
+                System.out.println("------------ описание заявки :" + it.getDecs() + "-----------");
+            }
+        }
+    }
+
+
+    private void showMenu() {
+        String str = String.join("\n", "Меню.", "0. Add new Item", "1. Show all items",
+                "2. Edit item", "3. Delete item", "4. Find item by Id", "5. Find items by name",
+                "6. Exit Program", "Select: ");
+        System.out.println(str);
+    }
+
+    /**
+     * Запускт программы.
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+
+        new StartUI(new Input(), new Tracker()).init();
+    }
+}
+
+
+
