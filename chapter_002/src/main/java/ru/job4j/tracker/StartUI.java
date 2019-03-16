@@ -87,9 +87,14 @@ public class StartUI {
         if (items.length != 0) {
             items[0].setName(this.input.ask("Введите новое имя заявки :"));
             items[0].setDecs(this.input.ask("Введите новое описание заявки :"));
-            if (tracker.replace(items[0].getId(), items[0])) System.out.println("Замена прошла успешно");
-            else System.out.println("Замена не удалась");
-        } else System.out.println("Нет такой заявки");
+            if (tracker.replace(items[0].getId(), items[0])) {
+                System.out.println("Замена прошла успешно");
+            } else {
+                System.out.println("Замена не удалась");
+            }
+        } else {
+            System.out.println("Нет такой заявки");
+        }
     }
 
     private void showItems() {
@@ -110,9 +115,14 @@ public class StartUI {
         if (items.length != 0) {
             System.out.println("------------ Найдена заявка с именем : " + items[0].getName() + "-----------");
             System.out.println("------------ описание заявки :" + items[0].getDecs() + "-----------");
-            if (tracker.delete(items[0].getId())) System.out.println("Удаление прошло успешно");
-            else System.out.println("Удаление не удалась");
-        } else System.out.println("Нет такой заявки");
+            if (tracker.delete(items[0].getId())) {
+                System.out.println("Удаление прошло успешно");
+            } else {
+                System.out.println("Удаление не удалась");
+            }
+        } else {
+            System.out.println("Нет такой заявки");
+        }
     }
 
     private void findById() {
@@ -122,7 +132,9 @@ public class StartUI {
         if (item != null) {
             System.out.println("------------ Найдена заявка с именем : " + item.getName() + "-----------");
             System.out.println("------------ описание заявки :" + item.getDecs() + "-----------");
-        } else System.out.println("Нет такой заявки");
+        } else {
+            System.out.println("Нет такой заявки");
+        }
     }
 
     private void findByName() {
@@ -148,7 +160,7 @@ public class StartUI {
     /**
      * Запускт программы.
      *
-     * @param args
+     * @param args параметры командной строки
      */
     public static void main(String[] args) {
 

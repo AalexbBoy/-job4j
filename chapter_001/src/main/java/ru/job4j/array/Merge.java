@@ -4,8 +4,9 @@ public class Merge {
     int[] merge(int[] left, int[] right) {
         int[] result = new int[left.length + right.length];
         int j = 0, aLength;
-        if (left.length <= right.length) aLength = left.length;
-        else {
+        if (left.length <= right.length) {
+            aLength = left.length;
+        } else {
             aLength = right.length;
             int[] tmp = left;
             left = right;
@@ -22,8 +23,9 @@ public class Merge {
                 j += 2;
             }
         }
-        if (j == result.length) return result;
-        else {
+        if (j == result.length) {
+            return result;
+        } else {
             for (int i = left.length; i < right.length; i++, j++) {
                 result[j] = right[i];
             }

@@ -39,7 +39,7 @@ public class MergeTest {
 
     @Test
     public void whenMerge2x4WithEqual() {
-        int[] left = new int[]{1, 3,};
+        int[] left = new int[]{1, 3};
         int[] right = new int[]{1, 4, 7, 8};
         Merge array = new Merge();
         int[] rst = array.merge(left, right);
@@ -50,7 +50,7 @@ public class MergeTest {
     @Test
     public void whenMerge4x2WithEqual() {
         int[] left = new int[]{1, 4, 7, 8};
-        int[] right = new int[]{1, 3,};
+        int[] right = new int[]{1, 3};
         Merge array = new Merge();
         int[] rst = array.merge(left, right);
         int[] expect = new int[]{1, 1, 3, 4, 7, 8};
