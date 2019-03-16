@@ -3,20 +3,6 @@ package ru.job4j.tracker;
 import java.io.IOException;
 import java.util.Scanner;
 
-/**
- * @version $Id$
- * @since 0.1
- */
-
-class Input {
-    public String ask(String question) {
-        System.out.println(question);
-        Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
-        return str;
-    }
-}
-
 
 public class StartUI {
     /**
@@ -98,12 +84,10 @@ public class StartUI {
         System.out.println("------------ Редактирование заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         Item[] items = this.tracker.findByName(name);
-        if (items != null) {
-            System.out.println("------------ Найдена заявка с именем : " + items[0].getName() + "-----------");
-            System.out.println("------------ описание заявки :" + items[0].getDecs() + "-----------");
-            System.out.println("------------ ID заявки :" + items[0].getId() + "-----------");
+        if (items.length != 0) {
+            items[0].setName(this.input.ask("Введите новое имя заявки :"));
             items[0].setDecs(this.input.ask("Введите новое описание заявки :"));
-            if (tracker.replace(name, items[0])) System.out.println("Замен0а прошла успешно");
+            if (tracker.replace(name, items[0])) System.out.println("Замена прошла успешно");
             else System.out.println("Замена не удалась");
         } else System.out.println("Нет такой заявки");
     }
@@ -111,7 +95,7 @@ public class StartUI {
     private void showItems() {
         System.out.println("------------ Поиск всех заявок --------------");
         Item[] items = this.tracker.findAll();
-        if (items != null) {
+        if (items.length != 0) {
             for (Item it : items) {
                 System.out.println("------------ Найдена заявка с именем : " + it.getName() + "-----------");
                 System.out.println("------------ описание заявки :" + it.getDecs() + "-----------");
@@ -123,7 +107,7 @@ public class StartUI {
         System.out.println("------------ Удаление заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         Item[] items = this.tracker.findByName(name);
-        if (items != null) {
+        if (items.length != 0) {
             System.out.println("------------ Найдена заявка с именем : " + items[0].getName() + "-----------");
             System.out.println("------------ описание заявки :" + items[0].getDecs() + "-----------");
             if (tracker.delete(items[0].getId())) System.out.println("Удаление прошло успешно");
@@ -138,14 +122,14 @@ public class StartUI {
         if (item != null) {
             System.out.println("------------ Найдена заявка с именем : " + item.getName() + "-----------");
             System.out.println("------------ описание заявки :" + item.getDecs() + "-----------");
-        }
+        } else System.out.println("Нет такой заявки");
     }
 
     private void findByName() {
         System.out.println("------------ Поиск по имени заявки --------------");
         String name = this.input.ask("Введите имя заявки :");
         Item[] items = this.tracker.findByName(name);
-        if (items != null) {
+        if (items.length != 0) {
             for (Item it : items) {
                 System.out.println("------------ Найдена заявка с именем : " + it.getName() + "-----------");
                 System.out.println("------------ описание заявки :" + it.getDecs() + "-----------");

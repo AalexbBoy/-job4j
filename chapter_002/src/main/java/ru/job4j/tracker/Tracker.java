@@ -96,8 +96,7 @@ public class Tracker {
                 j++;
             }
         }
-        if (j > 0) return Arrays.copyOf(result, j);
-        else return null;
+        return Arrays.copyOf(result, j);
     }
 
     public Item findById(String id) {
