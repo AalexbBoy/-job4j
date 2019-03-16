@@ -87,7 +87,7 @@ public class StartUI {
         if (items.length != 0) {
             items[0].setName(this.input.ask("Введите новое имя заявки :"));
             items[0].setDecs(this.input.ask("Введите новое описание заявки :"));
-            if (tracker.replace(name, items[0])) System.out.println("Замена прошла успешно");
+            if (tracker.replace(items[0].getId(), items[0])) System.out.println("Замена прошла успешно");
             else System.out.println("Замена не удалась");
         } else System.out.println("Нет такой заявки");
     }
