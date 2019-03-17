@@ -7,11 +7,6 @@ import java.util.Scanner;
  * @since 0.1
  */
 
-class Input {
-    public String ask(String question) {
-        System.out.println(question);
-        Scanner scanner = new Scanner(System.in);
-        String str = scanner.nextLine();
-        return str;
-    }
+interface Input {
+    String ask(String question);
 }

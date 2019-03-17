@@ -40,7 +40,7 @@ public class Tracker {
      *
      * @return Уникальный ключ.
      */
-    private String generateId() {
+    public String generateId() {
         Date time = new Date();
         return (time.getTime() + "" + Math.random());
     }

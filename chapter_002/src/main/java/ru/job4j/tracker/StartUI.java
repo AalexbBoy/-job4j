@@ -80,21 +80,22 @@ public class StartUI {
 
     private void editItem() {
         System.out.println("------------ Редактирование заявки --------------");
-        String name = this.input.ask("Введите имя заявки :");
-        Item[] items = this.tracker.findByName(name);
-        if (items.length != 0) {
-            Item item = new Item(this.input.ask("Введите новое имя заявки :"),
-                    this.input.ask("Введите новое описание заявки :"),
-                    System.currentTimeMillis());
-            if (tracker.replace(items[0].getId(), item)) {
+        String id = this.input.ask("Введите ID заявки :");
+        Item item = this.tracker.findById(id);
+        if (item != null) {
+            Item newItem = new Item(this.input.ask("Введите новое имя заявки :"),
+                    this.input.ask("Введите новое описание заявки :"), System.currentTimeMillis());
+            if (tracker.replace(id, newItem)) {
                 System.out.println("Замена прошла успешно");
             } else {
                 System.out.println("Замена не удалась");
             }
+
         } else {
             System.out.println("Нет такой заявки");
         }
     }
+
 
     private void showItems() {
         System.out.println("------------ Поиск всех заявок --------------");
@@ -163,7 +164,7 @@ public class StartUI {
      */
     public static void main(String[] args) {
 
-        new StartUI(new Input(), new Tracker()).init();
+        new StartUI(new ConsoleInput(), new Tracker()).init();
     }
 }
 
