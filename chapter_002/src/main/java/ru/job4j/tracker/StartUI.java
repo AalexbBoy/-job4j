@@ -1,15 +1,10 @@
 package ru.job4j.tracker;
 
-import java.io.IOException;
-import java.util.Scanner;
-
-
 public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
      */
     private static final String ADD = "0";
-
     private static final String SHOW = "1";
     private static final String EDIT = "2";
     private static final String DEL = "3";
@@ -76,8 +71,11 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         String desc = this.input.ask("Введите описание заявки :");
         Item item = new Item(name, desc, System.currentTimeMillis());
-        this.tracker.add(item);
-        System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        if (this.tracker.add(item) != null) {
+            System.out.println("------------ Новая заявка с getId : " + item.getId() + "-----------");
+        } else {
+            System.out.println("Добавить не удалось");
+        }
     }
 
     private void editItem() {
@@ -85,9 +83,10 @@ public class StartUI {
         String name = this.input.ask("Введите имя заявки :");
         Item[] items = this.tracker.findByName(name);
         if (items.length != 0) {
-            items[0].setName(this.input.ask("Введите новое имя заявки :"));
-            items[0].setDecs(this.input.ask("Введите новое описание заявки :"));
-            if (tracker.replace(items[0].getId(), items[0])) {
+            Item item = new Item(this.input.ask("Введите новое имя заявки :"),
+                    this.input.ask("Введите новое описание заявки :"),
+                    System.currentTimeMillis());
+            if (tracker.replace(items[0].getId(), item)) {
                 System.out.println("Замена прошла успешно");
             } else {
                 System.out.println("Замена не удалась");

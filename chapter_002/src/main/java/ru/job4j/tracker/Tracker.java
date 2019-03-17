@@ -42,14 +42,13 @@ public class Tracker {
      */
     private String generateId() {
         Date time = new Date();
-        //Реализовать метод генерации.
         return (time.getTime() + "" + Math.random());
     }
 
     public boolean replace(String id, Item item) {
         boolean result = false;
         for (int i = 0; i < position; i++) {
-            if (this.items[i].getId().equals(item.getId())) {
+            if (this.items[i].getId().equals(id)) {
                 this.items[i] = item;
                 result = true;
                 break;
