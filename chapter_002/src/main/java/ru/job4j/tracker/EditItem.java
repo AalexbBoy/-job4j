@@ -1,0 +1,33 @@
+package ru.job4j.tracker;
+
+public class EditItem implements UserAction {
+    @Override
+    public String key() {
+        return StartUI.EDIT;
+    }
+
+    @Override
+    public void execute(Input input, Tracker tracker) {
+        System.out.println("------------ Редактирование заявки --------------");
+        String id = input.ask("Введите ID заявки :");
+        Item item = tracker.findById(id);
+        if (item != null) {
+            Item newItem = new Item(input.ask("Введите новое имя заявки :"),
+                    input.ask("Введите новое описание заявки :"), System.currentTimeMillis());
+            newItem.setId(tracker.generateId());
+            if (tracker.replace(id, newItem)) {
+                System.out.println("Замена прошла успешно");
+            } else {
+                System.out.println("Замена не удалась");
+            }
+
+        } else {
+            System.out.println("Нет такой заявки");
+        }
+    }
+
+    @Override
+    public String info() {
+        return "2.Edit Item.";
+    }
+}
