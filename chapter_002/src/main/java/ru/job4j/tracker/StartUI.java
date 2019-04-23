@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+import java.util.ArrayList;
+import java.util.List;
+
 interface UserAction {
     /**
      * Метод возвращает ключ опции.
@@ -28,7 +31,7 @@ public class StartUI {
     /**
      * Константа меню для добавления новой заявки.
      */
-    public static final String ADD = "0";
+    static final String ADD = "0";
     public static final String SHOW = "1";
     public static final String EDIT = "2";
     public static final String DEL = "3";
@@ -64,16 +67,23 @@ public class StartUI {
     /**
      * Основой цикл программы.
      */
-    public void init() {
-
+    public void init()  {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
         menu.fillActions();
-        do {
-            System.out.println();
-            menu.show();
-            menu.select(Integer.valueOf(input.ask("Введите пункт меню : ")));
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        List<Integer> range = new ArrayList<>();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
 
+        do {
+            menu.show();
+           try {
+               menu.select(input.ask("select:", range));
+           }
+           catch (MenuOutException moe){
+               System.out.println("MOE");
+           }
+        } while (!"y".equals(this.input.ask("Exit?(y): ")));
     }
 
     /**
@@ -82,8 +92,7 @@ public class StartUI {
      * @param args параметры командной строки
      */
     public static void main(String[] args) {
-
-        new StartUI(new ConsoleInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(), new Tracker()).init();
     }
 }
 
