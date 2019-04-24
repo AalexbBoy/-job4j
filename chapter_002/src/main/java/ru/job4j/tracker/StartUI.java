@@ -54,12 +54,12 @@ public class StartUI {
         do {
             menu.show();
            try {
-               menu.select(input.ask("select:", range));
+               menu.select(input.ask("Выберите:", range));
            }
            catch (MenuOutException moe){
                System.out.println("MOE");
            }
-        } while (!"y".equals(this.input.ask("Exit?(y): ")));
+        } while (!"y".equals(this.input.ask("Выйти?(y): ")));
     }
 
     /**
@@ -68,7 +68,8 @@ public class StartUI {
      * @param args параметры командной строки
      */
     public static void main(String[] args) {
-        new StartUI(new ValidateInput(), new Tracker()).init();
+        new StartUI(new ValidateInput(new ConsoleInput()),
+                new Tracker()).init();
     }
 }
 
