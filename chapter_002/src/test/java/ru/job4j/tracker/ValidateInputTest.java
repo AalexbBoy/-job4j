@@ -48,4 +48,20 @@ public class ValidateInputTest {
                 )
         );
     }
+
+    @Test
+    public void whenInputOutofRange() {
+        ValidateInput input = new ValidateInput(
+                new StubInput(new String[] {"9", "1"})
+        );
+        List range=new  ArrayList<Integer>();
+        range.add(0,1);
+        input.ask("Выберите число из меню ", range);
+        assertThat(
+                this.mem.toString(),
+                is(
+                        String.format("Выберите число из меню%n")
+                )
+        );
+    }
 }

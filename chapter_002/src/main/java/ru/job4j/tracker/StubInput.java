@@ -38,7 +38,20 @@ public class StubInput implements Input {
     }
 
     @Override
-    public int ask(String question, List<Integer> range) {
-        return Integer.valueOf(this.value[this.position++]);
+    public int ask(String question, List<Integer> range)throws MenuOutException {
+        boolean exist = false;
+        int key = Integer.valueOf(this.value[this.position++]);
+        for (int value :
+                range) {
+            if (value == key) {
+                exist = true;
+                break;
+            }
+        }
+        if (exist) return key;
+        else {
+            throw new MenuOutException("Число не из меню");
+        }
+
     }
 }
