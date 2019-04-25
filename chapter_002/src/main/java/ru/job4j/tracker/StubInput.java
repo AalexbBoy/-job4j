@@ -38,9 +38,9 @@ public class StubInput implements Input {
     }
 
     @Override
-    public int ask(String question, List<Integer> range)throws MenuOutException {
-        boolean exist = false;
+    public int ask(String question, List<Integer> range) throws MenuOutException {
         int key = Integer.valueOf(this.value[this.position++]);
+        boolean exist = false;
         for (int value :
                 range) {
             if (value == key) {
@@ -48,10 +48,9 @@ public class StubInput implements Input {
                 break;
             }
         }
-        if (exist) return key;
-        else {
+        if (!exist) {
             throw new MenuOutException("Число не из меню");
         }
-
+        return key;
     }
 }

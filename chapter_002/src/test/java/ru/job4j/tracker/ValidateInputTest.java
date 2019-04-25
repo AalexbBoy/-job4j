@@ -50,7 +50,7 @@ public class ValidateInputTest {
     }
 
     @Test
-    public void whenInputOutofRange() {
+    public void whenInputOutOfRange() {
         ValidateInput input = new ValidateInput(
                 new StubInput(new String[] {"9", "1"})
         );
