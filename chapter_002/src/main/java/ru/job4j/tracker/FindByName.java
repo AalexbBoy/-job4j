@@ -1,14 +1,8 @@
 package ru.job4j.tracker;
 
-public class FindByName implements UserAction {
-    @Override
-    public String key() {
-        return StartUI.FIND_NAME;
-    }
-
-    @Override
-    public String info() {
-        return "5.Find by Name.";
+public class FindByName extends BaseAction {
+    public FindByName(String key, String name) {
+        super(key, name);
     }
 
     @Override

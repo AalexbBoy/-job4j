@@ -4,6 +4,8 @@ package ru.job4j.tracker;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ru.job4j.tracker.StartUI.*;
+
 public class MenuTracker {
     /**
      * @param хранит ссылку на объект .
@@ -43,13 +45,13 @@ public class MenuTracker {
      * Метод заполняет массив.
      */
     public void fillActions() {
-        this.actions.add(new AddItem());
-        this.actions.add(new ShowItems());
-        this.actions.add(new EditItem());
-        this.actions.add(new DeleteItem());
-        this.actions.add(new FindByID());
-        this.actions.add(new FindByName());
-        this.actions.add(new ExitProgram());
+        this.actions.add(new AddItem(ADD,"Добавление элемента"));
+        this.actions.add(new ShowItems(SHOW,"Поиск всех заявок"));
+        this.actions.add(new EditItem(EDIT,"Редактирование заявки"));
+        this.actions.add(new DeleteItem(DEL,"Удаление заявки"));
+        this.actions.add(new FindByID(FIND_ID,"Поиск по ID"));
+        this.actions.add(new FindByName(FIND_NAME,"Поиск по названию"));
+        this.actions.add(new ExitProgram(EXIT,"Выход"));
     }
 
     /**

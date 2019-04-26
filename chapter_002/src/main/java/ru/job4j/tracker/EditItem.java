@@ -1,9 +1,8 @@
 package ru.job4j.tracker;
 
-public class EditItem implements UserAction {
-    @Override
-    public String key() {
-        return StartUI.EDIT;
+public class EditItem extends BaseAction {
+    public EditItem(String key, String name) {
+        super(key, name);
     }
 
     @Override
@@ -24,10 +23,5 @@ public class EditItem implements UserAction {
         } else {
             System.out.println("Нет такой заявки");
         }
-    }
-
-    @Override
-    public String info() {
-        return "2.Edit Item.";
     }
 }

@@ -59,7 +59,7 @@ public class StartUI {
            catch (MenuOutException moe){
                System.out.println("MOE");
            }
-        } while (!"y".equals(this.input.ask("Выйти?(y): ")));
+        } while (!"д".equals(this.input.ask("Выйти?(д): ")));
     }
 
     /**

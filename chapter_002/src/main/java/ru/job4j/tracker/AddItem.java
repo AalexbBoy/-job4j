@@ -1,28 +1,18 @@
 package ru.job4j.tracker;
 
-public class AddItem implements UserAction {
-    @Override
-    public String key() {
-        return StartUI.ADD;
-    }
+public class AddItem extends BaseAction {
 
-    @Override
-    public String info() {
-        return "0.Add new Item.";
-    }
+    public AddItem(String key, String name) {
+        super(key, name); }
 
     @Override
     public void execute(Input input, Tracker tracker) {
-        System.out.println("------------ Adding new item --------------");
-        String name = input.ask("Please, provide item name:");
-        String desc = input.ask("Please, provide item description:");
+        System.out.println("------------ Добавление новой заявки --------------");
+        String name = input.ask("Введите название:");
+        String desc = input.ask("Введите описание:");
         Item item = new Item(name, desc, System.currentTimeMillis());
         tracker.add(item);
-        System.out.println("------------ New Item with Id : " + item.getId());
-        System.out.println("------------ New Item with Name : " + item.getName());
-        System.out.println("------------ New Item with Description : " + item.getDesc());
+        System.out.println("------------ Новая заявка Id : " + item.getId());
     }
-
-
 }
 

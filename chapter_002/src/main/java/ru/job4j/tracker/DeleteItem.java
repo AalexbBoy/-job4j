@@ -1,14 +1,8 @@
 package ru.job4j.tracker;
 
-public class DeleteItem implements UserAction {
-    @Override
-    public String key() {
-        return StartUI.DEL;
-    }
-
-    @Override
-    public String info() {
-        return "3.Delete Item.";
+public class DeleteItem extends BaseAction {
+    public DeleteItem(String key, String name) {
+        super(key, name);
     }
 
     public void execute(Input input, Tracker tracker) {

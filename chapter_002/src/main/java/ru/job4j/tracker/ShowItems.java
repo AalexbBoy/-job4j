@@ -1,14 +1,8 @@
 package ru.job4j.tracker;
 
-public class ShowItems implements UserAction {
-    @Override
-    public String key() {
-        return StartUI.SHOW;
-    }
-
-    @Override
-    public String info() {
-        return "1.Show Items.";
+public class ShowItems extends BaseAction {
+    public ShowItems(String key, String name) {
+        super(key, name);
     }
 
     @Override

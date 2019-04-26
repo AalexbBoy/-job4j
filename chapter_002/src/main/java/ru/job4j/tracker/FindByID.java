@@ -1,16 +1,9 @@
 package ru.job4j.tracker;
 
-public class FindByID implements UserAction {
-    @Override
-    public String key() {
-        return StartUI.FIND_ID;
+public class FindByID extends BaseAction {
+    public FindByID(String key, String name) {
+        super(key, name);
     }
-
-    @Override
-    public String info() {
-        return "4.Find by ID.";
-    }
-
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Поиск по ID заявки --------------");
