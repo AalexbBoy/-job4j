@@ -34,6 +34,7 @@ public class StartUI {
      *
      * @param input   ввод данных.
      * @param tracker хранилище заявок.
+     * Композиция
      */
     public StartUI(Input input, Tracker tracker) {
         this.input = input;

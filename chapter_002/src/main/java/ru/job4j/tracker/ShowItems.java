@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+/** Наследование
+ */
 
 public class ShowItems extends BaseAction {
     public ShowItems(String key, String name) {

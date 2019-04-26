@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+/** Наследование
+ */
 
 public class ExitProgram extends BaseAction {
     public ExitProgram(String key, String name) {

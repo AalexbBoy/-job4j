@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+/** Наследование
+ */
 
 public class EditItem extends BaseAction {
     public EditItem(String key, String name) {

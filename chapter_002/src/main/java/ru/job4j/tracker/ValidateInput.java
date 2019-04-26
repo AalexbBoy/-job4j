@@ -2,6 +2,9 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
+/**
+ * Композиция
+ */
 public class ValidateInput implements Input {
     private final Input input;
 

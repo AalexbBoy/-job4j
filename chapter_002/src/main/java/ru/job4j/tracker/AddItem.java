@@ -1,5 +1,8 @@
 package ru.job4j.tracker;
 
+/**
+ * Наследование
+ */
 public class AddItem extends BaseAction {
 
     public AddItem(String key, String name) {

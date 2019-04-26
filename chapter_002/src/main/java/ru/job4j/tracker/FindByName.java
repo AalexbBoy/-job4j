@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+/** Наследование
+ */
 
 public class FindByName extends BaseAction {
     public FindByName(String key, String name) {

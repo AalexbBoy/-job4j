@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+/** Наследование
+ */
 
 public class FindByID extends BaseAction {
     public FindByID(String key, String name) {

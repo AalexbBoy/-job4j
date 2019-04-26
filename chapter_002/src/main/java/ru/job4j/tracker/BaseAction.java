@@ -1,4 +1,6 @@
 package ru.job4j.tracker;
+/** Композиция
+ */
 
 public abstract class BaseAction implements UserAction {
     private final String key;
