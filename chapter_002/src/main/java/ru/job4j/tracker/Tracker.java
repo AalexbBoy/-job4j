@@ -10,6 +10,7 @@ import java.util.Date;
 public class Tracker {
     /**
      * Массив для хранение заявок.
+     * Агрегация
      */
     private final Item[] items = new Item[100];
 
