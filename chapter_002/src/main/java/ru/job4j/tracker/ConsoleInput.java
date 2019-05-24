@@ -16,8 +16,7 @@ class ConsoleInput implements Input {
 
     @Override
     public int ask(String question, List<Integer> range) throws MenuOutException {
-        System.out.println(question);
-        Scanner scanner = new Scanner(System.in);
+        System.ou t= new Scanner(System.in);
         boolean exist = false;
         int key = Integer.valueOf(scanner.nextLine());
         for (int value :
