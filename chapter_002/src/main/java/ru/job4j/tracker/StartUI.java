@@ -59,8 +59,8 @@ public class StartUI {
             try {
 
                 menu.select(input.ask("Выберите:", range));
-            } catch (MenuOutException moe) {
-                System.out.println(moe.getMessage());
+            } catch (IllegalStateException e) {
+                System.out.println(e.getMessage());
             }
         } while (!exitProgram);
     }

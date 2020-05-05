@@ -23,7 +23,7 @@ public class ValidateInput implements Input {
             try {
                 value = this.input.ask(question, range);
                 invalid = false;
-            } catch (MenuOutException e) {
+            } catch (IllegalStateException e) {
                 System.out.println("Выберите число из меню");
             } catch (NumberFormatException e) {
                 System.out.println("Вы ввели не число!");

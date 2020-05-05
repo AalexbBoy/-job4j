@@ -15,8 +15,8 @@ class ConsoleInput implements Input {
     }
 
     @Override
-    public int ask(String question, List<Integer> range) throws MenuOutException {
-        System.ou t= new Scanner(System.in);
+    public int ask(String question, List<Integer> range) throws IllegalStateException {
+        Scanner scanner = new Scanner(System.in);
         boolean exist = false;
         int key = Integer.valueOf(scanner.nextLine());
         for (int value :
@@ -27,7 +27,7 @@ class ConsoleInput implements Input {
             }
         }
         if (!exist) {
-            throw new MenuOutException("Число не из меню");
+            throw new IllegalStateException("Число не из меню");
         }
         return key;
     }

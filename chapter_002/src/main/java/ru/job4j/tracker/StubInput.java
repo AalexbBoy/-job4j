@@ -40,7 +40,7 @@ public class StubInput implements Input {
     }
 
     @Override
-    public int ask(String question, List<Integer> range) throws MenuOutException {
+    public int ask(String question, List<Integer> range) throws IllegalStateException {
         int key = Integer.valueOf(this.value[this.position++]);
         boolean exist = false;
         for (int value :
@@ -51,7 +51,7 @@ public class StubInput implements Input {
             }
         }
         if (!exist) {
-            throw new MenuOutException("Число не из меню");
+            throw new IllegalStateException("Число не из меню");
         }
         return key;
     }
