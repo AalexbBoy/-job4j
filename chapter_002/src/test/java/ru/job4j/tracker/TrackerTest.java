@@ -3,6 +3,9 @@ package ru.job4j.tracker;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
@@ -39,13 +42,13 @@ public class TrackerTest {
     public void whenFindAllItemThenTrackerHasAllItem() {
         Tracker tracker = new Tracker();
         long created = System.currentTimeMillis();
-        Item[] result = new Item[2];
+        List<Item> result = new ArrayList<>();
         Item item = new Item("test1", "testDescription", created);
         tracker.add(item);
-        result[0] = item;
+        result.add(item);
         item = new Item("test2", "testDescription2", 123L);
         tracker.add(item);
-        result[1] = item;
+        result.add(item);
         assertThat(tracker.findAll(), is(result));
     }
 
@@ -63,15 +66,15 @@ public class TrackerTest {
     public void whenFindItemByStringThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
         long created = System.currentTimeMillis();
-        Item[] result = new Item[2];
+        List<Item> result = new ArrayList<>();
         Item item = new Item("test1", "testDescription", created);
         tracker.add(item);
         item = new Item("test2", "testDescription2", 123L);
         tracker.add(item);
-        result[0] = item;
+        result.add(item);
         item = new Item("test2", "testDescription3", 1234L);
         tracker.add(item);
-        result[1] = item;
+        result.add(item);
         assertThat(tracker.findByName("test2"), is(result));
     }
 }
