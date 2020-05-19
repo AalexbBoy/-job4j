@@ -1,5 +1,9 @@
 package ru.job4j.tracker;
-/** Наследование
+
+import java.util.List;
+
+/**
+ * Наследование
  */
 
 public class ShowItems extends BaseAction {
@@ -10,8 +14,8 @@ public class ShowItems extends BaseAction {
     @Override
     public void execute(Input input, Tracker tracker) {
         System.out.println("------------ Поиск всех заявок --------------");
-        Item[] items = tracker.findAll();
-        if (items.length != 0) {
+        List<Item> items = tracker.findAll();
+        if (items.size() != 0) {
             for (Item it : items) {
                 System.out.println("------------ Найдена заявка с именем : " + it.getName() + "-----------");
                 System.out.println("------------ описание заявки :" + it.getDesc() + "-----------");
