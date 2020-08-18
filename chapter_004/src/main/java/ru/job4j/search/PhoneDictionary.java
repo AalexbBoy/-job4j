@@ -4,17 +4,18 @@ import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class PhoneDictionary {
-    private ArrayList<Person> persons = new ArrayList<>();
+    private final ArrayList<Person> persons = new ArrayList<>();
 
     public void add(Person person) {
         this.persons.add(person);
     }
 
     public ArrayList<Person> find(String key) {
-        Predicate<Person> combine = p -> (p.getPhone().equals(key))
-                || (p.getName().equals(key))
-                || (p.getSurname().equals(key))
-                || (p.getAddress().equals(key));
+        Predicate<Person> tstPhone = p -> (p.getPhone().equals(key));
+        Predicate<Person> tstName = p -> (p.getName().equals(key));
+        Predicate<Person> tstSurname = p -> (p.getSurname().equals(key));
+        Predicate<Person> tstAddress = p -> (p.getAddress().equals(key));
+        Predicate<Person> combine = tstPhone.or(tstName.or(tstSurname.or(tstAddress)));
         ArrayList<Person> result = new ArrayList<>();
         for (Person person : persons) {
             if (combine.test(person)) {
