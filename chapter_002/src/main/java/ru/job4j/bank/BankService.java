@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
 public class BankService {
     /**
      * users - множество клиентов банка.
@@ -39,16 +40,9 @@ public class BankService {
      * @return найденный клиент
      */
     public User findByPassport(final String passport) {
-        List<User> keyList = new ArrayList<>(users.keySet());
-        User rsl = null;
-        for (User user : keyList
-        ) {
-            if (passport.compareTo(user.getPassport()) == 0) {
-                rsl = user;
-                break;
-            }
-        }
-        return rsl;
+        return users.keySet().stream().filter(
+                user -> passport.compareTo(user.getPassport()) == 0
+        ).findFirst().orElse(null);
     }
 
     /**
@@ -59,17 +53,11 @@ public class BankService {
      * @return счет клиента
      */
     public Account findByRequisite(final String passport, final String requisite) {
-        Account rsl = null;
         User user = findByPassport(passport);
+        Account rsl = null;
         if (user != null) {
-            List<Account> accountList = users.get(user);
-            for (Account account : accountList
-            ) {
-                if (requisite.compareTo(account.getRequisite()) == 0) {
-                    rsl = account;
-                    break;
-                }
-            }
+            rsl = users.get(user).stream().filter(account -> requisite.compareTo(account.getRequisite()) == 0).
+                    findFirst().orElse(null);
         }
         return rsl;
     }
