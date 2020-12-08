@@ -19,8 +19,8 @@ public class PhoneDictionary {
     public ArrayList<Person> find(String key) {
 
         return persons.stream().filter(
-                person -> person.getName().contains(key) ||  person.getAddress().contains(key)||
-                          person.getSurname().contains(key)||  person.getPhone().contains(key)
+                person -> person.getName().contains(key) || person.getAddress().contains(key) ||
+                        person.getSurname().contains(key) || person.getPhone().contains(key)
         ).collect(Collectors.toCollection(ArrayList::new));
     }
 }
