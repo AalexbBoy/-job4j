@@ -6,7 +6,10 @@ import java.util.stream.Stream;
 public class Analyze {
 
     public static double averageScore(Stream<Pupil> stream) {
-        return 0D;
+
+        return stream.flatMap(pupil -> pupil.getSubjects().stream())
+                .mapToInt(Subject::getScore)
+                .average().orElse(0.0);
     }
 
     public static List<Tuple> averageScoreBySubject(Stream<Pupil> stream) {
