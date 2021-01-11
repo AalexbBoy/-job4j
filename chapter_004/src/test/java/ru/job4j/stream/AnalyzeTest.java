@@ -32,13 +32,13 @@ public class AnalyzeTest {
     public void whenListOfPupilAverage() {
         List<Tuple> average = Analyze.averageScoreBySubject(
                 List.of(
-                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 100))),
-                        new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 60)))
+                        new Pupil("Ivanov", List.of(new Subject("Math", 100), new Subject("Lang", 60))),
+                        new Pupil("Petrov", List.of(new Subject("Math", 60), new Subject("Lang", 70)))
                 ).stream()
         );
         assertThat(average, is(List.of(
-                new Tuple("Ivanov", 100D),
-                new Tuple("Petrov", 60D)
+                new Tuple("Ivanov", 80D),
+                new Tuple("Petrov", 65D)
         )));
     }
 
